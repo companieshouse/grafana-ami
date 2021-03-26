@@ -63,12 +63,6 @@ variable "force_deregister" {
   description = "Deregister an existing AMI if one with the same name already exists"
 }
 
-variable "grafana_admin_password" {
-  description = "The Grafana admin password"
-  type        = string
-}
-
-
 variable "playbook_file_path" {
   type        = string
   default     = "../ansible/playbook.yml"
