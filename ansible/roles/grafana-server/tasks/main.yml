@@ -22,10 +22,10 @@
     name: grafana-server
     state: stopped
 
-- name: Disable the grafana service
-  service:
-    name: grafana
-    enabled: no
+# - name: Disable the grafana service
+#   service:
+#     name: grafana
+#     enabled: no
 
 - name: Remove temporary directory
   file:
