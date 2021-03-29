@@ -1,0 +1,33 @@
+---
+
+- name: Create temporary directory
+  tempfile:
+    state: directory
+  register: temp_dir
+
+- name: Download Grafana rpm {{ resource_bucket_grafana_prefix }}/grafana-{{ grafana_version }}.x86_64.rpm
+  aws_s3:
+    bucket: "{{ resource_bucket_name }}"
+    object: "{{ resource_bucket_grafana_prefix }}/grafana-{{ grafana_version }}.x86_64.rpm"
+    dest: "{{ temp_dir.path }}/grafana-{{ grafana_version }}.x86_64.rpm"
+    mode: get
+
+- name: Install rpm {{ temp_dir.path }}/grafana-{{ grafana_version }}.x86_64.rpm
+  yum:
+    name: "{{ temp_dir.path }}/grafana-{{ grafana_version }}.x86_64.rpm"
+    state: present
+
+- name: Stop the grafana service
+  service:
+    name: grafana-server
+    state: stopped
+
+- name: Disable the grafana service
+  service:
+    name: grafana-server
+    enabled: no
+
+- name: Remove temporary directory
+  file:
+    path: temp_dir.path
+    state: absent
