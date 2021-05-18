@@ -1,5 +1,22 @@
 ---
 
+- name: Check if pip is already installed
+  yum:
+    list: python2-pip.noarch
+  register: pip_yum
+
+- name: Install Python
+  yum:
+    name: "{{ python_version }}"
+    state: present
+  when: pip_yum.results | selectattr("yumstate", "match", "installed") | list | length == 0
+
+- name: Install pip
+  yum:
+    name: "{{ pip_version }}"
+    state: present
+  when: pip_yum.results | selectattr("yumstate", "match", "installed") | list | length == 0
+
 - name: Create temporary directory
   tempfile:
     state: directory
