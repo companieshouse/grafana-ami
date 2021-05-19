@@ -17,7 +17,7 @@ variable "ansible_host_alias" {
 
 variable "ansible_user" {
   type        = string
-  default     = "centos"
+  default     = "ec2-user"
   description = "The ansible_user to use"
 }
 
