@@ -2,8 +2,8 @@
 
 pip_install_packages:
   - name: boto3
-    version: "1.14.56"
+    # version: "1.14.56"
   - name: botocore
-    version: "1.17.56"
+    # version: "1.17.56"
   - name: awscli
-    version: "1.16.11"
+    # version: "1.16.11"
