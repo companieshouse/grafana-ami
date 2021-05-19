@@ -9,6 +9,6 @@ roles:
     name: epel
     version: "3.0.4"
 
-  # - src: https://github.com/geerlingguy/ansible-role-pip
-  #   name: pip
-  #   version: "2.0.0"
+  - src: https://github.com/geerlingguy/ansible-role-pip
+    name: pip
+    version: "1.2.1"
