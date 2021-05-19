@@ -2,8 +2,6 @@
 
 grafana_version: 7.2.1-1
 
-# pip_version: python2-pip-9.0.3
-
 pip_install_packages:
   - name: boto3
     version: "1.17.75"
