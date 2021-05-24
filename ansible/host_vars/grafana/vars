@@ -1,5 +1,7 @@
 ---
 
+python_interpreter: /usr/bin/python3
+
 pip_install_packages:
   - name: boto3
   - name: botocore
