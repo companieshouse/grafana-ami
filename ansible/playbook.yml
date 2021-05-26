@@ -4,6 +4,5 @@
   become: true
   roles:
     - mounted-volume
-    - epel
     - pip
     - grafana-server

@@ -17,7 +17,7 @@ variable "ansible_host_alias" {
 
 variable "ansible_user" {
   type        = string
-  default     = "centos"
+  default     = "ec2-user"
   description = "The ansible_user to use"
 }
 
@@ -35,13 +35,13 @@ variable "aws_region" {
 
 variable "aws_source_ami_filter_name" {
   type        = string
-  default     = "CentOS 8* x86_64*"
+  default     = "amzn2-ami-hvm-2.0*x86_64-gp2"
   description = "The source AMI filter string. Any filter described by the DescribeImages API documentation is valid. If multiple images match then the latest will be used"
 }
 
 variable "aws_source_ami_owner_id" {
   type        = string
-  default     = "125523088429"
+  default     = "137112412989"
   description = "The source AMI owner ID; used in combination with aws_source_ami_filter_name to filter for matching source AMIs"
 }
 
@@ -98,7 +98,7 @@ variable "ssh_private_key_file" {
 
 variable "ssh_username" {
   type        = string
-  default     = "centos"
+  default     = "ec2-user"
   description = "The username Packer will use when connecting with SSH"
 }
 
